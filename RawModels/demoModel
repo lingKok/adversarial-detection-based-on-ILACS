@@ -1,0 +1,41 @@
+digraph {
+	graph [bgcolor="#FFFFFF" color="#000000" fontcolor="#000000" fontname=Times fontsize=10 margin="0,0" pad="1.0,0.5" rankdir=LR]
+	node [color="#000000" fillcolor="#E8E8E8" fontcolor="#000000" fontname=Times fontsize=10 margin="0,0" shape=box style=filled]
+	edge [color="#000000" fontcolor="#000000" fontname=Times fontsize=10 style=solid]
+	"/outputs/25" [label=<<table border='0' cellborder='0' cellpadding='0'><tr><td cellpadding='6'>MaxPool2x2</td></tr></table>>]
+	"/outputs/30" [label=<<table border='0' cellborder='0' cellpadding='0'><tr><td cellpadding='6'>MaxPool2x2</td></tr></table>>]
+	"/outputs/31" [label=<<table border='0' cellborder='0' cellpadding='0'><tr><td cellpadding='6'>Constant</td></tr></table>>]
+	"/outputs/32" [label=<<table border='0' cellborder='0' cellpadding='0'><tr><td cellpadding='6'>Reshape</td></tr></table>>]
+	"/outputs/37" [label=<<table border='0' cellborder='0' cellpadding='0'><tr><td cellpadding='6'>Linear</td></tr></table>>]
+	"/outputs/38" [label=<<table border='0' cellborder='0' cellpadding='0'><tr><td cellpadding='6'>Cast</td></tr></table>>]
+	"/outputs/39" [label=<<table border='0' cellborder='0' cellpadding='0'><tr><td cellpadding='6'>Relu</td></tr></table>>]
+	"/outputs/42" [label=<<table border='0' cellborder='0' cellpadding='0'><tr><td cellpadding='6'>Constant</td></tr></table>>]
+	"/outputs/43" [label=<<table border='0' cellborder='0' cellpadding='0'><tr><td cellpadding='6'>Constant</td></tr></table>>]
+	"/outputs/44" [label=<<table border='0' cellborder='0' cellpadding='0'><tr><td cellpadding='6'>aten::feature_dropout</td></tr></table>>]
+	"/outputs/47" [label=<<table border='0' cellborder='0' cellpadding='0'><tr><td cellpadding='6'>Linear</td></tr></table>>]
+	"/outputs/48" [label=<<table border='0' cellborder='0' cellpadding='0'><tr><td cellpadding='6'>ReduceMax</td></tr></table>>]
+	"/outputs/49" [label=<<table border='0' cellborder='0' cellpadding='0'><tr><td cellpadding='6'>Sub</td></tr></table>>]
+	1776235120598897437 [label=<<table border='0' cellborder='0' cellpadding='0'><tr><td cellpadding='6'>Linear &gt; Relu</td></tr></table>>]
+	12910065476808816512 [label=<<table border='0' cellborder='0' cellpadding='0'><tr><td cellpadding='6'>Linear &gt; Relu</td></tr></table>>]
+	11320800182945396223 [label=<<table border='0' cellborder='0' cellpadding='0'><tr><td cellpadding='6'>Conv3x3 &gt; Relu</td></tr><tr><td align='right' cellpadding='2'>x2</td></tr></table>>]
+	12872701393409874665 [label=<<table border='0' cellborder='0' cellpadding='0'><tr><td cellpadding='6'>Conv3x3 &gt; Relu</td></tr><tr><td align='right' cellpadding='2'>x2</td></tr></table>>]
+	675788969356930947 [label=<<table border='0' cellborder='0' cellpadding='0'><tr><td cellpadding='6'>Linear &gt; Relu</td></tr><tr><td align='right' cellpadding='2'>x2</td></tr></table>>]
+	"/outputs/30" -> "/outputs/32"
+	"/outputs/31" -> "/outputs/32"
+	"/outputs/37" -> "/outputs/38"
+	"/outputs/38" -> "/outputs/39"
+	"/outputs/42" -> "/outputs/44"
+	"/outputs/43" -> "/outputs/44"
+	"/outputs/47" -> "/outputs/48"
+	"/outputs/47" -> "/outputs/49"
+	"/outputs/48" -> "/outputs/49"
+	"/outputs/39" -> 1776235120598897437
+	1776235120598897437 -> "/outputs/44"
+	"/outputs/44" -> 12910065476808816512
+	12910065476808816512 -> "/outputs/47"
+	11320800182945396223 -> "/outputs/25"
+	"/outputs/25" -> 12872701393409874665
+	12872701393409874665 -> "/outputs/30"
+	"/outputs/32" -> 675788969356930947
+	675788969356930947 -> "/outputs/37"
+}
