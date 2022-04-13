@@ -47,5 +47,4 @@ python detect.py --dataset MNIST --attack FGSM --test_attack FGSM
 ## 3. Update
 If you want to contribute any new algorithms or updated implementation of existing algorithms, please also let us know.
 > UPDATE: All codes have been re-constructed for better readability and adaptability.
-## 4.
 
